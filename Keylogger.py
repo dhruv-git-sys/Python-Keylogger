@@ -15,7 +15,6 @@ class KeyLogger:
         self.root.title("Personal Keylogger")
         self.root.geometry("300x150")
         
-        # Recording status label
         self.status_label = Label(
             self.root, 
             text="Status: Not Recording",
@@ -23,7 +22,6 @@ class KeyLogger:
         )
         self.status_label.pack(pady=10)
         
-        # Toggle button
         self.toggle_button = Button(
             self.root,
             text="Start Recording",
@@ -31,7 +29,6 @@ class KeyLogger:
         )
         self.toggle_button.pack(pady=10)
         
-        # Exit button
         self.exit_button = Button(
             self.root,
             text="Exit",
@@ -87,7 +84,7 @@ class KeyLogger:
                 key_name = event.name if hasattr(event, 'name') else 'unknown'
                 log_entry = f"{timestamp}: {key_name}\n"
                 self.log_file.write(log_entry)
-                self.log_file.flush()  # Ensure data is written immediately
+                self.log_file.flush() 
                 
         except Exception as e:
             print(f"Error logging keystroke: {str(e)}")
